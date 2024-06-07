@@ -8,9 +8,10 @@ PluginDev branch mirror of https://github.com/goopymoon/UnrealEngine_IM4UPlugin/
 Original plugin by [BlackMa9(bm9)](https://github.com/bm9/).
 
 Original repository contributors:
-* goopymoon https://github.com/goopymoon/
+* goopymoon https://github.com/goopymoon
 * alwei https://github.com/alwei
 * demuyan https://github.com/demuyan
+* tekifuta https://github.com/tekifuta
 
 This software is released under the MIT License.
 
