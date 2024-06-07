@@ -62,7 +62,9 @@ DEFINE_LOG_CATEGORY(LogMMD4UE4_PMXFactory)
 // and a handfull of other minor stuff needed by these 
 // Fully taken from SkeletalMeshImport.cpp
 
-
+using namespace SkeletalMeshImportUtils;
+using namespace MMD4UE4;
+static 	bool bSkipModel = false;
 
 /////////////////////////////////////////////////////////
 
@@ -1217,7 +1219,7 @@ USkeletalMesh* UPmxFactory::ImportSkeletalMesh(
 
 	// Store whether or not this mesh has vertex colors
 	SkeletalMesh->SetHasVertexColors(SkelMeshImportDataPtr->bHasVertexColors);
-	SkeletalMesh->SetVertexColorGuid(SkeletalMesh->bHasVertexColors ? FGuid::NewGuid() : FGuid());
+	SkeletalMesh->SetVertexColorGuid(SkeletalMesh->GetHasVertexColors() ? FGuid::NewGuid() : FGuid());
 
 	FSkeletalMeshLODModel& LODModel = ImportedResource->LODModels[0];
 
@@ -1298,7 +1300,7 @@ USkeletalMesh* UPmxFactory::ImportSkeletalMesh(
 		const int32 NumSections = LODModel.Sections.Num();
 		for (int32 SectionIndex = 0; SectionIndex < NumSections; ++SectionIndex)
 		{
-			SkeletalMesh->GetLODInfo(0)->LODMaterialMap.Add(0);
+			SkeletalMesh->GetLODInfo(0)->LODMaterialMap.Add(SectionIndex);
 		}
 
 		if (ExistSkelMeshDataPtr)
